@@ -17,6 +17,8 @@ namespace hosting
                 }
             )
             .Build();
+
+            host.Run();
         }
     }
 }
