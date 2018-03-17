@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 
@@ -11,10 +12,18 @@ namespace hosting
             _next = next;
         }
 
-        public  async Task Invoke(HttpContext context){
+        public async Task Invoke(HttpContext context){
             //Request
+            var start = DateTime.Now;
+
             await _next(context);
+
             //Response
+            var finish = DateTime.Now;
+
+            var diff = finish.Subtract(start);
+
+            await context.Response.WriteAsync($"The time was {diff}");
         }
     }
 }

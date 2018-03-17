@@ -8,7 +8,7 @@ namespace hosting
         public void Configure(IApplicationBuilder app){
             app.UseMiddleware<MyMiddleware>();
 
-            app.Run(context => context.Response.WriteAsync("Olá Mundo 2"));
+            app.Run(context => context.Response.WriteAsync("Olá Mundo 2 | "));
         }
     }
 }
