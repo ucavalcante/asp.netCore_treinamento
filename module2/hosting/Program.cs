@@ -10,13 +10,13 @@ namespace hosting
         static void Main(string[] args)
         {
             var host = new WebHostBuilder()
-            .UseKestrel()
-            .Configure(
-                app => {
-                    app.Run(context => context.Response.WriteAsync("Olá Mundo"));
-                }
-            )
-            .Build();
+                .UseKestrel()
+                    .Configure(
+                        app => {
+                            app.Run(context => context.Response.WriteAsync("Olá Mundo"));
+                        }
+                    )
+                    .Build();
 
             host.Run();
         }
