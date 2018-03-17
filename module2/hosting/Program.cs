@@ -11,11 +11,7 @@ namespace hosting
         {
             var host = new WebHostBuilder()
                 .UseKestrel()
-                    .Configure(
-                        app => {
-                            app.Run(context => context.Response.WriteAsync("Olá Mundo"));
-                        }
-                    )
+                   .UseStartup<Startup>()
                     .Build();
 
             host.Run();
