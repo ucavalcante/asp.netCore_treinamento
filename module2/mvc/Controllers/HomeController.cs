@@ -5,13 +5,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using mvc.Models;
+using mvc.Repository;
 
 namespace mvc.Controllers
 {
     public class HomeController : Controller
     {
+
+        private IPeopleRepository _peopleRepository;
+        public HomeController()
+        {
+            _peopleRepository = new PeopleRepository("sqlserver://182");
+        }
         public IActionResult Index()
         {
+            ViewData["Name"] = _peopleRepository.GetNameById(2);
             return View();
         }
 
