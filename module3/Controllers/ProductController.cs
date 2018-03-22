@@ -12,6 +12,7 @@ namespace module3.Controllers
             return View();
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public IActionResult Save(Product product){
             if (!ModelState.IsValid)
                 ViewBag.Validacao = "Produto Invalido para cadastro";
