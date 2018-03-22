@@ -1,14 +1,20 @@
 using Microsoft.AspNetCore.Mvc;
+using module3.Models;
 
 namespace module3.Controllers
 {
-    [Route("api/product")]
-    public class ProductController
+    
+    public class ProductController: Controller
     {
-        [HttpGet("{id:int}")]
-        public int Get(int id){
+    
+        public IActionResult Save(){
 
-            return id;
+            return View();
+        }
+
+        public IActionResult Save(Product product){
+
+            return View();
         }
     }
 }
