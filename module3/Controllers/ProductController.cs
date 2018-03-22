@@ -13,7 +13,7 @@ namespace module3.Controllers
         }
         [HttpPost]
         public IActionResult Save(Product product){
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
                 ViewBag.Validacao = "Produto Invalido para cadastro";
             
 
