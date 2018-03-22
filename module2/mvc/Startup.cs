@@ -22,8 +22,13 @@ namespace mvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IPeopleRepository>(repository => new PeopleRepository("http:sqlserver:182"));
             services.AddMvc();
+
+            services.AddTransient<IPeopleRepository>(repository => new PeopleRepository("http:sqlserver:182"));
+
+            // services.AddScoped() injeta uma classe por requisição.
+
+            // services.AddSingleton() injeta uma classe de forma concreta por toda a vida da aplicação.
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
