@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using mvc.Repository;
 
 namespace mvc
 {
@@ -21,6 +22,7 @@ namespace mvc
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IPeopleRepository>(repository => new PeopleRepository("http:sqlserver:182"));
             services.AddMvc();
         }
 

@@ -13,9 +13,9 @@ namespace mvc.Controllers
     {
 
         private IPeopleRepository _peopleRepository;
-        public HomeController()
+        public HomeController(IPeopleRepository repository)
         {
-            _peopleRepository = new PeopleRepository("sqlserver://182");
+            _peopleRepository = repository;
         }
         public IActionResult Index()
         {
