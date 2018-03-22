@@ -28,6 +28,10 @@ namespace module3.Controllers
 
             return View();
         }
+        public IActionResult People()
+        {
+            return View(new People{Name = "David", Idade = 11});
+        }
 
         public IActionResult Error()
         {
