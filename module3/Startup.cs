@@ -48,6 +48,11 @@ namespace module3
                     name: "about-rout",
                     template:"about",
                     defaults: new {controller = "Home", action = "About" }
+                )
+                .MapRoute(
+                    name: "contact-rout",
+                    template:"contact",
+                    defaults: new {controller = "Home", action = "Contact" }
                 )    
                     ;
             });
