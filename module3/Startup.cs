@@ -40,9 +40,16 @@ namespace module3
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute(
+                routes
+                .MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}")
+                .MapRoute(
+                    name: "about-rout",
+                    template:"about",
+                    defaults: new {controller = "Home", action = "About" }
+                )    
+                    ;
             });
         }
     }
