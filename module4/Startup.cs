@@ -11,9 +11,14 @@ namespace module4
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment environment)
         {
-            Configuration = configuration;
+            var Builder = new ConfigurationBuilder()
+            .SetBasePath(environment.ContentRootPath)
+            .AddJsonFile("appsettings.json",optional:false,reloadOnChange:true)
+            .AddJsonFile($"appsettings.{environment.EnvironmentName}.json",optional:true)
+            .AddEnvironmentVariables();
+            Configuration = Builder.Build();
         }
 
         public IConfiguration Configuration { get; }
