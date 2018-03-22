@@ -13,6 +13,9 @@ namespace module3.Controllers
         }
         [HttpPost]
         public IActionResult Save(Product product){
+            if (product.Id == 0 || !string.IsNullOrEmpty(product.Name)||product.Price == 0)
+                ViewBag.Validacao = "Produto Invalido para cadastro";
+            
 
             return View();
         }
