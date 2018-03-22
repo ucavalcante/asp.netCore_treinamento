@@ -12,9 +12,14 @@ namespace mvc
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IHostingEnvironment env)
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+            .SetBasePath(env.ContentRootPath)
+            .AddJsonFile("appsettings.json",optional:false,reloadOnChange:true)
+            .AddJsonFile($"appsettings.{env.EnvironmentName}.json",optional:false)
+            .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -26,9 +31,11 @@ namespace mvc
 
             services.AddTransient<IPeopleRepository>(repository => new PeopleRepository("http:sqlserver:182"));
 
-            // services.AddScoped() injeta uma classe por requisição.
+            // injeta uma classe por requisição
+            // services.AddScoped()
 
-            // services.AddSingleton() injeta uma classe de forma concreta por toda a vida da aplicação.
+            //injeta uma classe de forma concreta por toda a vida da aplicação.
+            services.AddSingleton(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

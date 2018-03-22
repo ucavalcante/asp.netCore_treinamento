@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using mvc.Models;
 using mvc.Repository;
 
@@ -13,13 +14,16 @@ namespace mvc.Controllers
     {
 
         private IPeopleRepository _peopleRepository;
-        public HomeController(IPeopleRepository repository)
+        private IConfiguration _configuration;
+        public HomeController(IPeopleRepository repository, IConfiguration configuration )
         {
             _peopleRepository = repository;
+            _configuration = configuration;
         }
         public IActionResult Index()
         {
             ViewData["Name"] = _peopleRepository.GetNameById(2);
+            ViewData["Environment"] = _configuration.GetValue<string>("Environment");
             return View();
         }
 
