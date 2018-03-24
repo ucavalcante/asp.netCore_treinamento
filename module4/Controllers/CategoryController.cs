@@ -21,7 +21,7 @@ namespace module4.Controllers
         {
             _context.Categories.Add(category);
             _context.SaveChanges();
-            return View();
+            return  RedirectToAction("Index");
         }
     }
 }
