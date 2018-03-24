@@ -1,0 +1,11 @@
+@{
+    ViewData["Title"] = "Cadastro de Categorias"
+}
+
+<form asp-action="Register" asp-controller="Category" method="POST">
+    <div class="form-group">
+        <label for="Name">Nome</label>
+        <input type="text" class="form-control" asp-for="Name">
+    </div>
+    <button type="submit" class="btn btn-default">Salvar</button>
+</form>
