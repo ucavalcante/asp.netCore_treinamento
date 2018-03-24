@@ -80,6 +80,16 @@ namespace module5
                     ;
                     
             });
+
+            //atribuir papéis principais na inicialização da aplicação.
+            var roleManager = app.ApplicationServices.GetService<RoleManager<IdentityRole>>();
+            
+            if (!roleManager.RoleExistsAsync("ADMIN").Result)
+                roleManager.CreateAsync(new IdentityRole("ADMIN"));
+                   
+            if (!roleManager.RoleExistsAsync("MANAGER").Result)
+                roleManager.CreateAsync(new IdentityRole("MANAGER"));
         }
     }
 }
+
