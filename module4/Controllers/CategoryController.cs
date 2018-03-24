@@ -38,5 +38,14 @@ namespace module4.Controllers
             _context.SaveChanges();
             return  RedirectToAction("Index");
         }
+        [HttpPost]
+        public IActionResult Delete(int Id)
+        {
+            var categorySelected = _context.Categories.FirstOrDefault(c => c.Id == Id);
+            _context.Categories.Remove(categorySelected);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
     }
 }
