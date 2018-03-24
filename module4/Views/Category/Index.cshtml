@@ -9,10 +9,12 @@
 {
     <li>
         @item.Name
+        <a href="/Category/Index/@item.Id">Editar</a>
     </li>
 }
-
+<br>
 <form asp-action="Register" asp-controller="Category" method="POST">
+    <input type="hidden" asp-for="Id">
     <div class="form-group">
         <label for="Name">Nome</label>
         <input type="text" class="form-control" asp-for="Name">

@@ -13,16 +13,28 @@ namespace module4.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public IActionResult Index(int Id)
         {
             var categories = _context.Categories.ToList();
             ViewBag.Categories = categories;
-            return View();
+
+            var categorySelected = _context.Categories.FirstOrDefault(c => c.Id == Id);
+            return View(categorySelected);
         }
         [HttpPost]
         public IActionResult Register(Category category)
         {
-            _context.Categories.Add(category);
+            if (category.Id ==0)
+            {
+                _context.Categories.Add(category);    
+            }
+            else
+            {
+                var categorySaved = _context.Categories.FirstOrDefault(c => c.Id == category.Id);
+                categorySaved.Name = category.Name;
+                _context.Categories.Update(categorySaved);
+            }
+            
             _context.SaveChanges();
             return  RedirectToAction("Index");
         }
