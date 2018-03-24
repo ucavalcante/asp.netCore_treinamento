@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using module4.Data;
 using System;
 
@@ -25,12 +23,11 @@ namespace module4.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(50);
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cat");
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("module4.Domain.Product", b =>
@@ -38,8 +35,7 @@ namespace module4.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name")
-                        .HasMaxLength(100);
+                    b.Property<string>("Name");
 
                     b.Property<int?>("categoryId");
 
@@ -47,7 +43,7 @@ namespace module4.Migrations
 
                     b.HasIndex("categoryId");
 
-                    b.ToTable("Prod");
+                    b.ToTable("Products");
                 });
 
             modelBuilder.Entity("module4.Domain.Product", b =>
