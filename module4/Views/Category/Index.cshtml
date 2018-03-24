@@ -1,7 +1,15 @@
 @model module4.Domain.Category
+@using module4.Domain
 
 @{
     ViewData["Title"] = "Cadastro de Categorias";
+}
+
+@foreach(var item in ViewBag.Categories as List<Category>)
+{
+    <li>
+        @item.Name
+    </li>
 }
 
 <form asp-action="Register" asp-controller="Category" method="POST">

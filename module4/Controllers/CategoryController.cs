@@ -1,3 +1,4 @@
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using module4.Data;
 using module4.Domain;
@@ -14,6 +15,8 @@ namespace module4.Controllers
         }
         public IActionResult Index()
         {
+            var categories = _context.Categories.ToList();
+            ViewBag.Categories = categories;
             return View();
         }
         [HttpPost]
