@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var concat = require('gulp-concat')
 
 gulp.task('js', function () {
     
@@ -7,4 +8,10 @@ gulp.task('js', function () {
         './node_modules/jquery/dist/jquery.min.js'
     ]).pipe(gulp.dest('wwwroot/js/'))
     ;
+});
+
+gulp.task('css',function(){
+
+    return gulp.src()
+    
 });
