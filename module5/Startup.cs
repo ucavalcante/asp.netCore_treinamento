@@ -67,7 +67,18 @@ namespace module5
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}")
+                    .MapRoute(
+                        name: "manage-rout",
+                        template:"manage", 
+                        defaults: new {controller = "Manage" , action = "Index"})
+                    .MapRoute(
+                        name: "contact-rout",
+                        template:"contact",
+                        defaults: new {controller = "Home", action = "Contact" }
+                )   
+                    ;
+                    
             });
         }
     }
