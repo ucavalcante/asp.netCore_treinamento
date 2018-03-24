@@ -12,6 +12,12 @@ gulp.task('js', function () {
 
 gulp.task('css',function(){
 
-    return gulp.src()
+    return gulp.src([
+        './Style/.site.css',
+        './node_modules/bootstrap/dist/css/bootstrap.css'
+    ]).pipe(concat('site.min.js'))
+    .pipe(gulp.dest('wwwroot/css/'))
+    ;
+
     
 });
