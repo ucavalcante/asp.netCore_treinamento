@@ -1,7 +1,26 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
-
-<p>Use this area to provide additional information.</p>
+<div class="row header">
+    <div class="col-md-12">
+        <h3>Category</h3>
+        <a href="/Category" class="btn btn-primary">Back</a>
+    </div>
+    <div class="row form-wrapper">
+        <div class="col-md-12">
+            <form id="form" class="form-horizontal" asp-action="CreateOrEdit" asp-controller="Category" asp-anti-forgery=""> 
+                <div class="form-group">
+                    <label class="col-md-12">Name</label>
+                    <div class="col-md-8">
+                        <input class="form-control" asp-for="Name">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-8">
+                        <button class="btn btn-succes">Save</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>    
+</div>
