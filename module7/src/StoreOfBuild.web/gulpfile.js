@@ -11,6 +11,7 @@ gulp.task('browser-sync',function(){
 
     gulp.watch('./Styles/**/*.css',['css'])
     gulp.watch('./js/**/*.js',['js'])
+    gulp.watch('./Views/**/*.cshtml',['refresh'])
 });
 
 gulp.task('js', function () {
@@ -41,4 +42,7 @@ gulp.task('css',function(){
     ;
 });
 
+gulp.task('refresh',function(){
+    return browserSync.stream();
+})
 
