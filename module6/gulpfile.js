@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
+var cssmin = require("gulp-cssmin")
 
 gulp.task('js', function () {
    
@@ -17,5 +18,6 @@ gulp.task('css',function(){
         './node_modules/bootstrap/dist/css/bootstrap.css'
     ])
     .pipe(concat('site.min.css'))
+    .pipe(cssmin())
     .pipe(gulp.dest('wwwroot/css/'));
 });
