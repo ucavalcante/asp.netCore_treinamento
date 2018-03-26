@@ -1,4 +1,6 @@
 
+using System;
+
 namespace StoreOfBuild.Domain
 {
     public class DomainException : Exception 
@@ -9,7 +11,7 @@ namespace StoreOfBuild.Domain
 
         }
 
-        public static When (bool hasError, string error)
+        public static void When (bool hasError, string error)
         {
             if (hasError)
             {

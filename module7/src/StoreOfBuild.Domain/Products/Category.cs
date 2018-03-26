@@ -8,7 +8,7 @@ namespace StoreOfBuild.Domain.Products
 
         public Category (int id , string name)
         {
-            DomainException.When(string.IsNullOrEmpty(name), 'Name is required');
+            DomainException.When(string.IsNullOrEmpty(name), "Name is required");
 
             Id = id;
             Name = name;
