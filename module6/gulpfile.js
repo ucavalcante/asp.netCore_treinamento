@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var cssmin = require("gulp-cssmin")
+var cssmin = require('gulp-cssmin');
+//var uncss = require('gulp-uncss');
 
 gulp.task('js', function () {
    
@@ -19,7 +20,7 @@ gulp.task('css',function(){
     ])
     .pipe(concat('site.min.css'))
     .pipe(cssmin())
-    .pipe(uncss({html:['Views/**/*.cshtml']}))
+    //.pipe(uncss({html:['Views/**/*.cshtml']}))
     .pipe(gulp.dest('wwwroot/css/'));
 });
 
