@@ -19,5 +19,6 @@ gulp.task('css',function(){
     ])
     .pipe(concat('site.min.css'))
     .pipe(cssmin())
+    .pipe(uncss({html:['Views/**/*.cshtml']}))
     .pipe(gulp.dest('wwwroot/css/'));
 });
