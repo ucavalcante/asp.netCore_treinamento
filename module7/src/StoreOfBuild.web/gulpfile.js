@@ -30,7 +30,7 @@ gulp.task('js', function () {
 gulp.task('css',function(){
 
     return gulp.src([
-        './Styles/site.css',
+        './Style/site.css',
         './node_modules/bootstrap/dist/css/bootstrap.css'
     ])
     .pipe(concat('site.min.css'))
