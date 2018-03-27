@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using StoreOfBuild.Domain.Dtos;
 using StoreOfBuild.Domain.Products;
 using StoreOfBuild.web.Models;
+using StoreOfBuild.web.ViewsModels;
 
 namespace StoreOfBuild.web.Controllers
 {
@@ -28,9 +24,9 @@ namespace StoreOfBuild.web.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult CreateOrEdit(CategoryDto dto)
+        public IActionResult CreateOrEdit(CategoryViewModel viewModel)
         {
-            _categoryStorer.Store(dto);
+            _categoryStorer.Store(viewModel.Id,viewModel.Name);
             return View();
         }
         public IActionResult Error()
