@@ -5,15 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using StoreOfBuild.Domain.Dtos;
+using StoreOfBuild.Domain.Products;
 using StoreOfBuild.web.Models;
 
 namespace StoreOfBuild.web.Controllers
 {
     public class CategoryController : Controller
     {
-        public CategoryController()
+        private readonly CategoryStorer _categoryStorer;
+
+        public CategoryController(CategoryStorer categoryStorer)
         {
-            
+            _categoryStorer = categoryStorer;
         }
         public IActionResult Index()
         {

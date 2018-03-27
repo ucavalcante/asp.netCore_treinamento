@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using StoreOfBuild.Data;
 using StoreOfBuild.Domain;
+using StoreOfBuild.Domain.Products;
 
 namespace StoreOfBuild.DI
 {
@@ -14,6 +15,7 @@ namespace StoreOfBuild.DI
              options => options.UseSqlServer(conexao)
          );
          services.AddSingleton(typeof(IRepository<>),typeof(Repository<>));
+         services.AddSingleton(typeof(CategoryStorer));
         }
     }
 }
