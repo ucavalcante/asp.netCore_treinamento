@@ -12,10 +12,9 @@ namespace StoreOfBuild.DI
         public static void Configure(IServiceCollection services, string conexao)
         {
          services.AddDbContext<ApplicationDbContext> (
-             options => options.UseSqlServer(conexao)
-         );
-         services.AddSingleton(typeof(IRepository<>),typeof(Repository<>));
-         services.AddSingleton(typeof(CategoryStorer));
+             options => options.UseSqlServer(conexao));
+         services.AddScoped(typeof(IRepository<>),typeof(Repository<>));
+         services.AddScoped(typeof(CategoryStorer));
         }
     }
 }

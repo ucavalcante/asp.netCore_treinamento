@@ -25,13 +25,12 @@ namespace StoreOfBuild.web.Controllers
         [HttpGet]
         public IActionResult CreateOrEdit()
         {
-            var x = HttpContext.Response.Body;
-            var y = x.ToString();
             return View();
         }
         [HttpPost]
         public IActionResult CreateOrEdit(CategoryDto dto)
         {
+            _categoryStorer.Store(dto);
             return View();
         }
         public IActionResult Error()
