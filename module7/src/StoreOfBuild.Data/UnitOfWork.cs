@@ -11,7 +11,7 @@ namespace StoreOfBuild.Data
         {
             _context = context;
         }
-        public async Task Save()
+        public async Task Commit()
         {
             await _context.SaveChangesAsync();
         }

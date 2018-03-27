@@ -4,6 +4,6 @@ namespace StoreOfBuild.Domain
 {
     public interface IUnitOfWork
     {
-        Task Save();
+        Task Commit();
     }
 }
