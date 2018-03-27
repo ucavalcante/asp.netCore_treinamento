@@ -22,7 +22,7 @@ namespace StoreOfBuild.web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            Bootstrap.Configure(services, configuration.GetConnectionSting("DefaultConnection"));
+            Bootstrap.Configure(services, Configuration.GetConnectionString("DefaultConnection"));
             services.AddMvc();
         }
 
