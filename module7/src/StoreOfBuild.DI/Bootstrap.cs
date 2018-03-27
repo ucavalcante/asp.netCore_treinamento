@@ -7,11 +7,11 @@ namespace StoreOfBuild.DI
 {
     public class Bootstrap
     {
-        public static void Configure(IServiceCollection services)
+        public static void Configure(IServiceCollection services, string conexao)
         {
          services.AddDbContext<ApplicationDbContext> (
-             options => options.UseSqlServer(configuration.GetConnectionSting("DefaultConnection"));
-         )
+             options => options.UseSqlServer(conexao)
+         );
         }
     }
 }
